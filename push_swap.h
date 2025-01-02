@@ -2,7 +2,6 @@
 # define PUSH_SWAP_H
 
 # include <limits.h>
-# include "42-libft/libft.h"
-
+# include "libft/libft.h"
 
 #endif

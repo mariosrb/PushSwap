@@ -11,31 +11,73 @@
 /* ************************************************************************** */
 
 #include "push_swap.h"
-// "2 3 4 5" 5 6 7 8
-void	verif(int ac, char **av)
-{
-	t_list *a;
-	int		i;
-	char	**result;
-	// si > 2 arguments on atoi les arguments 
-	// si = 2 split sur le 2eme argument
-	
-	i = 0;
-	a = ft_lstnew(0);
 
-	while (av[i])
+int	is_valid_number(char *str)
+{
+	int	i;
+
+	i = 0;
+	if (!str[i] || !str)
+		return (0);
+	if (str[i] == '+' || str[i] == '-')
+		i++;
+	if (!str[i])
+		return (0);
+	while (str[i])
 	{
-			
+		if (!ft_isdigit(str[i]))
+			return (0);
+		i++;
 	}
-}	
+	return (1);
+}
+
+int	is_space(char *str)
+{
+	int i = 0;
+
+	while (str[i])
+	{
+		if (str[i] == ' ' || str[i] == '\t')
+			return (1);
+		i++;
+	}
+	return (0);
+}
+
+void	check_format(int ac, char **av)
+{
+	char	**strs;
+	long	tmp;
+	 
+	if (ac == 2)
+		strs = av[1];
+	else
+	{
+
+	}
+}
 
 int	main(int ac, char **av)
 {
+	int	i;
+
+	i = 1;
 	if (ac < 2)
 	{
-		ft_printf("Pas assez darguments\n");
-		return (0);
+		printf("Erreur : Aucun argument fourni.\n");
+		return (1);
 	}
-	verif(ac, av);
+	while (av[i])
+	{
+		if (is_valid_number(av[i]))
+			printf("Valide\n");
+		else
+		{
+			printf("Error\n");
+			return (1);
+		}
+		i++;
+	}
 	return (0);
 }
