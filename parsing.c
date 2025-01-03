@@ -45,14 +45,24 @@ int	is_space(char *str)
 	return (0);
 }
 
+int		is_double()
+{
+	
+}
+
 void	check_format(int ac, char **av)
 {
 	char	**strs;
-	long	tmp;
-	 
+	int		i;
+	
+	i = 0;
 	if (ac == 2)
-		strs = av[1];
+		strs[i] = av[1];
 	else
+	{
+		strs = av;
+	}
+	while (strs[i])
 	{
 
 	}
