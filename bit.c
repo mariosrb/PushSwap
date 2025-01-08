@@ -108,7 +108,7 @@ void	rotate_both(t_list **head_a, t_list **head_b)
 	rotate_to_last(&(*head_a));
 	rotate_to_last(&(*head_b));
 }
-//h
+
 void	reverse_rotate(t_list **head)
 {
 	t_list	*tmp;
@@ -116,8 +116,24 @@ void	reverse_rotate(t_list **head)
 
 	if (!*head)
 		return ;
-	
+	tmp = *head;
+	last = *head;
+	while (1)
+	{
+		tmp = tmp->next;
+		if (tmp->next == NULL)
+			break;
+		last = last->next;
+	}
+	tmp->next = *head;
+	last->next = NULL;
+	*head = tmp;
+}
 
+void	reverse_rotate_both(t_list **head_a, t_list **head_b)
+{
+	reverse_rotate(&(*head_a));
+	reverse_rotate(&(*head_b));
 }
 
 int main(int ac, char **av)
@@ -140,12 +156,13 @@ int main(int ac, char **av)
 		tmpp = tmpp->next;
 	}
 	print_list(head_a);
-	print_list(head_b);
+	//print_list(head_b);
 	//swap_first(&head_a);	
 	//swap_both(&head_a, &head_b);
 	//push_first(&head_a, &head_b);
 	//rotate_to_last(&head_a);
-	rotate_both(&head_a, &head_b);
+	//rotate_both(&head_a, &head_b);
+	reverse_rotate_both(&head_a, &head_b);
 	print_list(head_a);
 	print_list(head_b);
 	return (0);
