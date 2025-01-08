@@ -6,11 +6,22 @@
 /*   By: mdodevsk <mdodevsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/24 16:04:00 by mdodevsk          #+#    #+#             */
-/*   Updated: 2024/12/29 19:28:15 by mdodevsk         ###   ########.fr       */
+/*   Updated: 2025/01/05 14:51:09 by mdodevsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	free_matrice(char **strs)
+{
+	int	i = 0;
+	while (strs[i])
+	{
+		free(strs[i]);
+		i++;
+	}
+	free(strs);
+}
 
 int	is_valid_number(char *str)
 {
@@ -45,27 +56,47 @@ int	is_space(char *str)
 	return (0);
 }
 
-int		is_double()
+int		is_double(char **strs, int i)
 {
+	int		j;
+	long	num;
 	
+	j = 0;
+	num = ft_atol(strs[i]);
+	while (j < i)
+	{
+		if (num == ft_atol(strs[j]))
+			return (1);
+		j++;
+	}
+	return (0);
 }
 
-void	check_format(int ac, char **av)
+int	check_format(int ac, char **av)
 {
-	char	**strs;
 	int		i;
-	
+	char	**strs;
+	long	num;
+
 	i = 0;
 	if (ac == 2)
-		strs[i] = av[1];
+		strs = ft_split(av[1], ' ');
 	else
-	{
-		strs = av;
-	}
+		strs = &av[1];
 	while (strs[i])
 	{
-
+		num = ft_atol(strs[i]);
+		if (!is_valid_number(strs[i]) || num < INT_MIN || num > INT_MAX
+			|| is_double(strs, i))
+		{
+			ft_printf("Error premiere boucle.");
+			return (1);
+		}
+		i++;
 	}
+	if (ac == 2)
+		free_matrice(strs);
+	return (0);
 }
 
 int	main(int ac, char **av)
@@ -78,16 +109,10 @@ int	main(int ac, char **av)
 		printf("Erreur : Aucun argument fourni.\n");
 		return (1);
 	}
-	while (av[i])
+	if (!check_format(ac, av))
 	{
-		if (is_valid_number(av[i]))
-			printf("Valide\n");
-		else
-		{
-			printf("Error\n");
-			return (1);
-		}
-		i++;
+		write (1, "Error\n", 6);
+		return (0);
 	}
 	return (0);
 }
