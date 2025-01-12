@@ -6,21 +6,24 @@
 /*   By: mdodevsk <mdodevsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/24 16:04:00 by mdodevsk          #+#    #+#             */
-/*   Updated: 2025/01/05 14:51:09 by mdodevsk         ###   ########.fr       */
+/*   Updated: 2025/01/12 14:14:54 by mdodevsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	free_matrice(char **strs)
+void	free_matrice(int ac, char **av, char **strs)
 {
 	int	i = 0;
-	while (strs[i])
+	if (ac == 2)
 	{
-		free(strs[i]);
-		i++;
+		while (strs[i])
+		{
+			free(strs[i]);
+			i++;
+		}
+		free(strs);
 	}
-	free(strs);
 }
 
 int	is_valid_number(char *str)
@@ -28,12 +31,11 @@ int	is_valid_number(char *str)
 	int	i;
 
 	i = 0;
-	if (!str[i] || !str)
+	printf("--%s--\n", str);
+	if (!str || str[i] == '\0')
 		return (0);
 	if (str[i] == '+' || str[i] == '-')
 		i++;
-	if (!str[i])
-		return (0);
 	while (str[i])
 	{
 		if (!ft_isdigit(str[i]))
@@ -45,15 +47,18 @@ int	is_valid_number(char *str)
 
 int	is_space(char *str)
 {
-	int i = 0;
+	int i;
+	int	only_space;
 
+	i = 0;
+	only_space = 1;
 	while (str[i])
 	{
 		if (str[i] == ' ' || str[i] == '\t')
-			return (1);
+			only_space = 0;
 		i++;
 	}
-	return (0);
+	return (only_space);
 }
 
 int		is_double(char **strs, int i)
@@ -90,13 +95,14 @@ int	check_format(int ac, char **av)
 			|| is_double(strs, i))
 		{
 			ft_printf("Error premiere boucle.");
-			return (1);
+			free_matrice(ac, av, strs);
+			return (0);
 		}
 		i++;
 	}
 	if (ac == 2)
-		free_matrice(strs);
-	return (0);
+		free_matrice(ac, av, strs);
+	return (1);
 }
 
 int	main(int ac, char **av)
@@ -109,10 +115,10 @@ int	main(int ac, char **av)
 		printf("Erreur : Aucun argument fourni.\n");
 		return (1);
 	}
-	if (!check_format(ac, av))
+	if ((ac == 2 && !av[1][0]) || !check_format(ac, av))
 	{
 		write (1, "Error\n", 6);
-		return (0);
+		return (1);
 	}
 	return (0);
 }
