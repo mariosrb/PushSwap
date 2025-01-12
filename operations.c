@@ -6,7 +6,7 @@
 /*   By: mdodevsk <mdodevsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/12 14:47:36 by mdodevsk          #+#    #+#             */
-/*   Updated: 2025/01/12 15:48:06 by mdodevsk         ###   ########.fr       */
+/*   Updated: 2025/01/12 16:32:21 by mdodevsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -147,6 +147,40 @@ t_stack_node	*assign_list(int *tab, int size)
 		i++;
 	}
 	return (list);
+}
+
+// a mettre dans la partie algo
+
+t_stack_node	*max_value(t_stack_node *head)
+{
+	t_stack_node	*max;
+	t_stack_node	*tmp;
+
+	max = head;
+	tmp = head->next;
+	while (tmp != NULL)
+	{
+		if (max->content < tmp->content)
+			max = tmp;
+		tmp = tmp->next;
+	}
+	return (max);
+}
+
+t_stack_node	*min_value(t_stack_node *head)
+{
+	t_stack_node	*min;
+	t_stack_node	*tmp;
+
+	min = head;
+	tmp = head->next;
+	while (tmp != NULL)
+	{
+		if (min->content > tmp->content)
+			min = tmp;
+		tmp = tmp->next;
+	}
+	return (min);
 }
 
 int main(int ac, char **av)

@@ -6,7 +6,7 @@
 /*   By: mdodevsk <mdodevsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/12 14:31:32 by mdodevsk          #+#    #+#             */
-/*   Updated: 2025/01/12 14:36:07 by mdodevsk         ###   ########.fr       */
+/*   Updated: 2025/01/12 17:02:24 by mdodevsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,18 +17,18 @@
 # include <stdbool.h>
 # include "libft/libft.h"
 
-typedef struct s_stack_node
-{
-	int					content;
-	int					cost;
-	int					index;
-	bool				median;
-	bool				cheap;
+// typedef struct s_stack_node
+// {
+// 	int					content;
+// 	int					cost;
+// 	int					index;
+// 	bool				median;
+// 	bool				cheap;
 
-	struct s_stack_node	*next;
-	struct s_stack_node	*prev;
-	struct s_stack_node	*target;
-}	t_stack_node;
+// 	struct s_stack_node	*next;
+// 	struct s_stack_node	*prev;
+// 	struct s_stack_node	*target;
+// }	t_stack_node;
 
 // Error
 long			ft_atol(char *str);
@@ -42,6 +42,7 @@ void			free_matrice(int ac, char **av, char **strs);
 
 // Node init
 t_stack_node	*new_node(int n);
+
 // Stack utils
 
 // Operation
@@ -54,5 +55,7 @@ void			swap_both(t_stack_node **head_a, t_stack_node **head_b);
 void			swap_first(t_stack_node **head);
 
 //  Algo 
+t_stack_node	*max_value(t_stack_node *head);
+t_stack_node	*min_value(t_stack_node *head);
 
 #endif
