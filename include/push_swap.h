@@ -6,7 +6,7 @@
 /*   By: mdodevsk <mdodevsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/12 14:31:32 by mdodevsk          #+#    #+#             */
-/*   Updated: 2025/01/13 13:02:42 by mdodevsk         ###   ########.fr       */
+/*   Updated: 2025/01/13 16:49:17 by mdodevsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include <limits.h>
 # include <stdbool.h>
-# include "libft/libft.h"
+# include "../libft/libft.h"
 
 // typedef struct s_stack_node
 // {
@@ -42,7 +42,7 @@ int				verif(int ac, char **av);
 t_stack_node	*new_node(int n);
 t_stack_node	*fill_list(char **strs);
 void			free_list(t_stack_node *list);
-
+int				stack_size(t_stack_node *stack);
 
 // Operation
 void			rrr(t_stack_node **head_a, t_stack_node **head_b);
@@ -56,5 +56,9 @@ void			sa(t_stack_node **head);
 //  Algo 
 t_stack_node	*max_value(t_stack_node *head);
 t_stack_node	*min_value(t_stack_node *head);
+void			sort_three(t_stack_node **stack);
+void			sort_two(t_stack_node **stack);
+
+
 
 #endif

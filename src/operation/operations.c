@@ -6,7 +6,7 @@
 /*   By: mdodevsk <mdodevsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/12 14:47:36 by mdodevsk          #+#    #+#             */
-/*   Updated: 2025/01/13 12:48:00 by mdodevsk         ###   ########.fr       */
+/*   Updated: 2025/01/13 16:49:25 by mdodevsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,11 +78,14 @@ int main(int ac, char **av)
 	//int 			num[] = {1, 2, 3, 4};
 	//int				numm[] ={5, 6, 7, 8};
 	t_stack_node	*stack_a;
-	char			*strs[] = {"123", "15", "-78", NULL};
+	char			*strs[] = {"123", "15", "17", NULL};
 	stack_a = fill_list(strs);
 	if (!stack_a)
 		return (0);
 	print_list(stack_a);
+	sort_three(&stack_a);
+	print_list(stack_a);
+	printf("%d", stack_size(stack_a));
 	//t_stack_node	*head_a = assign_list(num, 4);
 	//t_stack_node	*head_b = assign_list(numm, 4);
 	//print_list(head_a);
@@ -92,14 +95,7 @@ int main(int ac, char **av)
 	//push_first(&head_a, &head_b);
 	//rotate_to_last(&head_a);
 	// rev_rotate(&head_a);
-	// head_a = head_a->next;
-	// head_a = head_a->next;
-	// head_a = head_a->next;
-	// head_a = head_a->next;
 	// head_a = head_a->prev;
-	// stack_a = stack_a->next;
-	// head_a = head_a->prev;
-
 	//printf("%d\n", stack_a->content);
 	//rotate_both(&head_a, &head_b);
 	//rev_rotate_both(&head_a, &head_b);
