@@ -6,7 +6,7 @@
 /*   By: mdodevsk <mdodevsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/12 14:47:36 by mdodevsk          #+#    #+#             */
-/*   Updated: 2025/01/12 16:32:21 by mdodevsk         ###   ########.fr       */
+/*   Updated: 2025/01/13 12:06:59 by mdodevsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -183,12 +183,56 @@ t_stack_node	*min_value(t_stack_node *head)
 	return (min);
 }
 
+void	free_list(t_stack_node *list)
+{
+	t_stack_node	*tmp;
+
+	while (list != NULL)
+	{
+		tmp = list;
+		list = list->next;
+		free(tmp);
+	}
+}
+
+t_stack_node	*fill_list(char **strs)
+{
+	int				i;
+	int				number;
+	t_stack_node	*tmp;
+	t_stack_node	*list;
+
+	i = 1;
+	list = new_node(ft_atol(strs[0]));
+	if (!list)
+		return (NULL);
+	while (strs[i] != NULL)
+	{
+		number = ft_atoi(strs[i]);
+		tmp = new_node(number);
+		if (!tmp)
+		{
+			free(list);
+			return (NULL);
+		}
+		ft_lstadd_back(&list, tmp);
+		i++;
+	}
+	return (list);
+}
+
 int main(int ac, char **av)
 {
-	int 	num[] = {1, 2, 3, 4};
-	int		numm[] ={5, 6, 7, 8};
-	t_stack_node	*head_a = assign_list(num, 4);
-	t_stack_node	*head_b = assign_list(numm, 4);
+	//int 			num[] = {1, 2, 3, 4};
+	//int				numm[] ={5, 6, 7, 8};
+	t_stack_node	*stack_a;
+	char			*strs[] = {"123", "15", "-78", NULL};
+	stack_a = fill_list(strs);
+	if (!stack_a)
+		return (0);
+	print_list(stack_a);
+	//t_stack_node	*head_a = assign_list(num, 4);
+	//t_stack_node	*head_b = assign_list(numm, 4);
 	//print_list(head_a);
 	//print_list(head_b);
 	//swap_first(&head_a);	
@@ -201,13 +245,19 @@ int main(int ac, char **av)
 	// head_a = head_a->next;
 	// head_a = head_a->next;
 	// head_a = head_a->prev;
-	// head_a = head_a->prev;
+	// stack_a = stack_a->next;
 	// head_a = head_a->prev;
 
-	printf("%d\n", head_a->content);
+	//printf("%d\n", stack_a->content);
 	//rotate_both(&head_a, &head_b);
 	//rev_rotate_both(&head_a, &head_b);
 	//print_list(head_a);
 	//print_list(head_b);
+	t_stack_node *test1;
+	t_stack_node *test2;
+	test1 = malloc(sizeof(t_stack_node));
+	test2 = test1;
+	free(test1);
+	free_list(stack_a);
 	return (0);
 }

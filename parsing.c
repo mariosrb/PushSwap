@@ -6,7 +6,7 @@
 /*   By: mdodevsk <mdodevsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/24 16:04:00 by mdodevsk          #+#    #+#             */
-/*   Updated: 2025/01/12 14:14:54 by mdodevsk         ###   ########.fr       */
+/*   Updated: 2025/01/12 17:46:02 by mdodevsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,14 @@ int		is_double(char **strs, int i)
 	}
 	return (0);
 }
+
+// void	fill_list(t_stack_node **stack_a, char **strs, int size)
+// {
+// 	int	i;
+
+// 	i = 0;
+// 	while (strs[i])
+// }
 
 int	check_format(int ac, char **av)
 {
