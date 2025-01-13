@@ -1,24 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   swap.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdodevsk <mdodevsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/12 14:16:27 by mdodevsk          #+#    #+#             */
-/*   Updated: 2025/01/13 13:03:59 by mdodevsk         ###   ########.fr       */
+/*   Created: 2025/01/13 12:48:08 by mdodevsk          #+#    #+#             */
+/*   Updated: 2025/01/13 12:48:22 by mdodevsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../../include/push_swap.h"
 
-int main(int ac, char **av)
+void	sa(t_stack_node **head)
 {
-	t_stack_node	*stack_a;
-	t_stack_node	*stack_b;
-	
-	if (!verif(ac, av))
-		return (0);
-	fill_list(stack_a);
-	return (0);
+	t_stack_node	*tmp;
+	t_stack_node	*tmp2;
+
+	if (!*head)
+		return ;
+	tmp = *head;
+	tmp2 = tmp->next;
+	tmp->next = tmp2->next;
+	tmp->prev = tmp2;
+	tmp2->next = *head;
+	tmp2->prev = NULL;
+	*head = tmp2;
+}
+void	ss(t_stack_node **head_a, t_stack_node **head_b)
+{
+	sa(&(*head_a));
+	sa(&(*head_b));
 }

@@ -6,11 +6,25 @@
 /*   By: mdodevsk <mdodevsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/05 12:22:16 by mdodevsk          #+#    #+#             */
-/*   Updated: 2025/01/05 12:53:05 by mdodevsk         ###   ########.fr       */
+/*   Updated: 2025/01/13 12:50:56 by mdodevsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../../include/push_swap.h"
+
+void	free_matrice(int ac, char **av, char **strs)
+{
+	int	i = 0;
+	if (ac == 2)
+	{
+		while (strs[i])
+		{
+			free(strs[i]);
+			i++;
+		}
+		free(strs);
+	}
+}
 
 static int	ft_isspace(char c)
 {

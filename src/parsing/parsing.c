@@ -6,27 +6,13 @@
 /*   By: mdodevsk <mdodevsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/24 16:04:00 by mdodevsk          #+#    #+#             */
-/*   Updated: 2025/01/12 17:46:02 by mdodevsk         ###   ########.fr       */
+/*   Updated: 2025/01/13 13:03:20 by mdodevsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../../include/push_swap.h"
 
-void	free_matrice(int ac, char **av, char **strs)
-{
-	int	i = 0;
-	if (ac == 2)
-	{
-		while (strs[i])
-		{
-			free(strs[i]);
-			i++;
-		}
-		free(strs);
-	}
-}
-
-int	is_valid_number(char *str)
+static int	is_valid_number(char *str)
 {
 	int	i;
 
@@ -45,7 +31,7 @@ int	is_valid_number(char *str)
 	return (1);
 }
 
-int	is_space(char *str)
+static int	is_space(char *str)
 {
 	int i;
 	int	only_space;
@@ -61,7 +47,7 @@ int	is_space(char *str)
 	return (only_space);
 }
 
-int		is_double(char **strs, int i)
+static int		is_double(char **strs, int i)
 {
 	int		j;
 	long	num;
@@ -76,14 +62,6 @@ int		is_double(char **strs, int i)
 	}
 	return (0);
 }
-
-// void	fill_list(t_stack_node **stack_a, char **strs, int size)
-// {
-// 	int	i;
-
-// 	i = 0;
-// 	while (strs[i])
-// }
 
 int	check_format(int ac, char **av)
 {
@@ -113,7 +91,7 @@ int	check_format(int ac, char **av)
 	return (1);
 }
 
-int	main(int ac, char **av)
+int	verif(int ac, char **av)
 {
 	int	i;
 
@@ -121,12 +99,12 @@ int	main(int ac, char **av)
 	if (ac < 2)
 	{
 		printf("Erreur : Aucun argument fourni.\n");
-		return (1);
+		return (0);
 	}
 	if ((ac == 2 && !av[1][0]) || !check_format(ac, av))
 	{
 		write (1, "Error\n", 6);
-		return (1);
+		return (0);
 	}
-	return (0);
+	return (1);
 }
