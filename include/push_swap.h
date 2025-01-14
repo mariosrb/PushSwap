@@ -6,7 +6,7 @@
 /*   By: mdodevsk <mdodevsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/12 14:31:32 by mdodevsk          #+#    #+#             */
-/*   Updated: 2025/01/14 11:25:41 by mdodevsk         ###   ########.fr       */
+/*   Updated: 2025/01/14 17:20:10 by mdodevsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,9 +41,12 @@ int				verif(int ac, char **av);
 
 t_stack_node	*new_node(int n);
 t_stack_node	*fill_list(char **strs);
+void			sort_stack(t_stack_node **stack_a, t_stack_node **stack_b);
+void			turkish_sort(t_stack_node **stack_a);
 void			free_list(t_stack_node *list);
 int				stack_size(t_stack_node *stack);
 int				is_sorted(t_stack_node *stack);
+void			set_target(t_stack_node *stack_a, t_stack_node *stack_b); // a mettrte en static
 
 
 // Operation

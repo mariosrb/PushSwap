@@ -6,7 +6,7 @@
 /*   By: mdodevsk <mdodevsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 12:41:55 by mdodevsk          #+#    #+#             */
-/*   Updated: 2025/01/13 16:55:20 by mdodevsk         ###   ########.fr       */
+/*   Updated: 2025/01/14 17:11:55 by mdodevsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	stack_size(t_stack_node *stack)
 
 	i = 0;
 	tmp = stack;
-	while(tmp != NULL)
+	while (tmp != NULL)
 	{
 		i++;
 		tmp = tmp->next;
@@ -69,19 +69,19 @@ void	sort_two(t_stack_node **stack)
 	if ((*stack)->content > tmp->content)
 		sa(stack);
 }
+
 void	sort_three(t_stack_node **stack)
 {
 	t_stack_node	*second;
 	t_stack_node	*third;
-	
+
 	second = (*stack)->next;
 	third = second->next;
-
-	if ((*stack)->content > second->content && 
-		(*stack)->content > third->content)
+	if ((*stack)->content > second->content
+		&& (*stack)->content > third->content)
 		ra(stack);
-	else if (second->content > (*stack)->content &&
-		second->content > third->content)
+	else if (second->content > (*stack)->content
+		&& second->content > third->content)
 		rra(stack);
 	second = (*stack)->next;
 	third = second->next;
