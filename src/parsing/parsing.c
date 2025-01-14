@@ -6,7 +6,7 @@
 /*   By: mdodevsk <mdodevsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/24 16:04:00 by mdodevsk          #+#    #+#             */
-/*   Updated: 2025/01/13 15:05:32 by mdodevsk         ###   ########.fr       */
+/*   Updated: 2025/01/14 12:09:51 by mdodevsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,12 +98,12 @@ int	verif(int ac, char **av)
 	i = 1;
 	if (ac < 2)
 	{
-		printf("Erreur : Aucun argument fourni.\n");
+		write (2, "Error\n", 6);
 		return (0);
 	}
 	if ((ac == 2 && !av[1][0]) || !check_format(ac, av))
 	{
-		write (1, "Error\n", 6);
+		write (2, "Error\n", 6);
 		return (0);
 	}
 	return (1);

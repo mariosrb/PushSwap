@@ -6,7 +6,7 @@
 /*   By: mdodevsk <mdodevsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/12 14:31:32 by mdodevsk          #+#    #+#             */
-/*   Updated: 2025/01/13 16:49:17 by mdodevsk         ###   ########.fr       */
+/*   Updated: 2025/01/14 11:25:41 by mdodevsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,8 @@ t_stack_node	*new_node(int n);
 t_stack_node	*fill_list(char **strs);
 void			free_list(t_stack_node *list);
 int				stack_size(t_stack_node *stack);
+int				is_sorted(t_stack_node *stack);
+
 
 // Operation
 void			rrr(t_stack_node **head_a, t_stack_node **head_b);

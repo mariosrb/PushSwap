@@ -6,7 +6,7 @@
 /*   By: mdodevsk <mdodevsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/12 14:47:36 by mdodevsk          #+#    #+#             */
-/*   Updated: 2025/01/13 16:49:25 by mdodevsk         ###   ########.fr       */
+/*   Updated: 2025/01/14 11:38:22 by mdodevsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,16 +78,12 @@ int main(int ac, char **av)
 	//int 			num[] = {1, 2, 3, 4};
 	//int				numm[] ={5, 6, 7, 8};
 	t_stack_node	*stack_a;
-	char			*strs[] = {"123", "15", "17", NULL};
+	char			*strs[] = {"11", "15", "10", NULL};
 	stack_a = fill_list(strs);
 	if (!stack_a)
 		return (0);
-	print_list(stack_a);
-	sort_three(&stack_a);
-	print_list(stack_a);
-	printf("%d", stack_size(stack_a));
-	//t_stack_node	*head_a = assign_list(num, 4);
-	//t_stack_node	*head_b = assign_list(numm, 4);
+	printf("--%d--\n", is_sorted(stack_a));
+	return (0);
 	//print_list(head_a);
 	//print_list(head_b);
 	//swap_first(&head_a);	
