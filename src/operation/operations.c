@@ -6,7 +6,7 @@
 /*   By: mdodevsk <mdodevsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/12 14:47:36 by mdodevsk          #+#    #+#             */
-/*   Updated: 2025/01/14 17:28:24 by mdodevsk         ###   ########.fr       */
+/*   Updated: 2025/01/15 16:59:04 by mdodevsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	print_list(t_stack_node *head)
 {
 	while (head != NULL)
 	{
-		printf("la valeur est %d\n", head->content);
+		printf("la valeur est %d\n", head->index);
 		head = head->next;
 	}
 }
@@ -72,17 +72,28 @@ t_stack_node	*fill_list(char **strs)
 	}
 	return (list);
 }
+
 int main(int ac, char **av)
 {
 	t_stack_node	*stack_a;
 	t_stack_node	*stack_b;
-	char			*strs[] = {"2", "20", "18", NULL};
-	char			*strss[] = {"7", "3", "14", "6", "12", NULL};
+	char			*strs[] = {"7", "1", "4", "3", NULL};
+	char			**strss;
+	init_stacks(&stack_a, &stack_b);
 	stack_a = fill_list(strs);
-	stack_b = fill_list(strss);
-	if (!stack_a)
+	if (!stack_a )
 		return (0);
-	set_target(stack_a, stack_b);
+	//get_index(stack_a);
+	get
+	print_list(stack_a);
+	// sort_stack(&stack_a, &stack_b);
+	// printf("%d\n", stack_a->content);
+	// stack_a = stack_a->next;
+	// printf("%d\n", stack_a->content);
+	// stack_a = stack_a->next;
+	// printf("%d\n", stack_a->content);
+	// stack_a = stack_a->next;
+	// printf("b--%d\n", stack_b->content);
 	return (0);
 }
 

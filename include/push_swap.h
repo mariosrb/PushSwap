@@ -6,7 +6,7 @@
 /*   By: mdodevsk <mdodevsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/12 14:31:32 by mdodevsk          #+#    #+#             */
-/*   Updated: 2025/01/14 17:20:10 by mdodevsk         ###   ########.fr       */
+/*   Updated: 2025/01/15 16:59:29 by mdodevsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,9 +36,7 @@ int				check_format(int ac, char **av);
 void			free_matrice(int ac, char **av, char **strs);
 int				verif(int ac, char **av);
 
-
 // Stack 
-
 t_stack_node	*new_node(int n);
 t_stack_node	*fill_list(char **strs);
 void			sort_stack(t_stack_node **stack_a, t_stack_node **stack_b);
@@ -47,7 +45,9 @@ void			free_list(t_stack_node *list);
 int				stack_size(t_stack_node *stack);
 int				is_sorted(t_stack_node *stack);
 void			set_target(t_stack_node *stack_a, t_stack_node *stack_b); // a mettrte en static
-
+void			init_stacks(t_stack_node **stack_a, t_stack_node **stack_b);
+void			get_index(t_stack_node *stack);
+void			get_median(t_stack_node *stack);
 
 // Operation
 void			rrr(t_stack_node **head_a, t_stack_node **head_b);
