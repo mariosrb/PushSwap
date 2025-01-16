@@ -6,7 +6,7 @@
 /*   By: mdodevsk <mdodevsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/12 14:47:36 by mdodevsk          #+#    #+#             */
-/*   Updated: 2025/01/16 12:10:19 by mdodevsk         ###   ########.fr       */
+/*   Updated: 2025/01/16 15:53:17 by mdodevsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,23 @@ void	print_list(t_stack_node *head)
 	printf("-------------------------------------\n");
 	while (head != NULL)
 	{
+		// printf("|| content %d || index %d || cost %d || target %d\n",head->content, head->index, head->cost, head->target->content);
+		// printf("Median: %s\n", head->cheapest ? "true" : "false");
+		printf("%d\n", head->content);
+		head = head->next;
+	}
+}
+
+void	print_list_prev(t_stack_node *head)
+{
+	printf("-------------------------------------\n");
+	head = ft_lstlast(head);
+	while (head != NULL)
+	{
 		printf("|| content %d || index %d || cost %d || target %d\n",head->content, head->index, head->cost, head->target->content);
 		printf("Median: %s\n", head->cheapest ? "true" : "false");
-		head = head->next;
+		//printf("%d\n", head->content);
+		head = head->prev;
 	}
 }
 
@@ -79,15 +93,18 @@ int main(int ac, char **av)
 {
 	t_stack_node	*stack_a;
 	t_stack_node	*stack_b;
-	char			*strs[] = {"7", "1", "4", "3", "8", "33", "12", "17", NULL};
-	char			**strss;
+	//char			*strs[] = {"7", "1", "4", "3", "8", "33", "12", "17", NULL};
+	char			*strs[] = {"11", "5", "4", "3", "8", NULL};
+	char			*strs[] = {"7", "1", "4", NULL};
+	//char			**strss;
 	init_stacks(&stack_a, &stack_b);
 	stack_a = fill_list(strs);
 	if (!stack_a )
 		return (0);
-	//get_index(stack_a);
-	sort_stack(&stack_a, &stack_b);	
-	print_list(stack_a);
+	sort_stack(&stack_a, &stack_b);
+	//print_list(stack_a);
+	//print_list(stack_b);
+	//print_list_prev(stack_a);
 	//print_list(stack_b);
 	// printf("%d\n", stack_a->content);
 	// stack_a = stack_a->next;

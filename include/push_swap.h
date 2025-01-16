@@ -6,7 +6,7 @@
 /*   By: mdodevsk <mdodevsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/12 14:31:32 by mdodevsk          #+#    #+#             */
-/*   Updated: 2025/01/16 11:26:54 by mdodevsk         ###   ########.fr       */
+/*   Updated: 2025/01/16 15:42:14 by mdodevsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,13 +30,15 @@
 // 	struct s_stack_node	*target;
 // }	t_stack_node;
 
+void	print_list(t_stack_node *head);
+
+
 // Parsing
 long			ft_atol(char *str);
 int				check_format(int ac, char **av);
 void			free_matrice(int ac, char **av, char **strs);
 int				verif(int ac, char **av);
 int				free_and_error(t_stack_node **stack_a, t_stack_node **stack_b);
-
 
 // Stack 
 t_stack_node	*new_node(int n);

@@ -6,7 +6,7 @@
 /*   By: mdodevsk <mdodevsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 15:51:45 by mdodevsk          #+#    #+#             */
-/*   Updated: 2025/01/16 14:08:07 by mdodevsk         ###   ########.fr       */
+/*   Updated: 2025/01/16 15:47:38 by mdodevsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,15 +40,38 @@ void	set_target(t_stack_node *stack_a, t_stack_node *stack_b)
 		stack_b = head_b;
 	}
 }
+void	push_to_b(t_stack_node **stack_a, t_stack_node **stack_b)
+{
+	t_stack_node	*current;
+
+	current = *stack_a;
+	while (current)
+	{
+		if (current->cheapest == true)
+			break;
+		current = current->next;
+	}
+	if (current->median == 1)
+	{
+		while (current != *stack_a)
+			ra(stack_a);
+	}
+	else
+		{
+			while (current != *stack_a)
+				rra(stack_a);
+		}
+	pa(stack_a, stack_b);
+}
 
 void	init_values(t_stack_node *stack_a, t_stack_node *stack_b)
 {
-		set_target(stack_a, stack_b);
-		get_index(stack_a);
-		get_index(stack_b);
-		get_median(stack_a);
-		get_cost(stack_a);
-		get_cheapest(stack_a);
+	set_target(stack_a, stack_b);
+	get_index(stack_a);
+	get_index(stack_b);
+	get_median(stack_a);
+	get_cost(stack_a);
+	get_cheapest(stack_a);
 }
 
 void	first_step(t_stack_node **stack_a, t_stack_node **stack_b)
@@ -66,7 +89,11 @@ void	first_step(t_stack_node **stack_a, t_stack_node **stack_b)
 	while (stack_size(*stack_a) != 3)
 	{
 		init_values(*stack_a, *stack_b);
+		push_to_b(stack_a, stack_b);
 	}
+	sort_three(&(*stack_a));
+	print_list(*stack_a);
+	print_list(*stack_b);
 }
 
 void	sort_stack(t_stack_node **stack_a, t_stack_node **stack_b)
