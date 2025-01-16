@@ -6,7 +6,7 @@
 /*   By: mdodevsk <mdodevsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/12 14:47:36 by mdodevsk          #+#    #+#             */
-/*   Updated: 2025/01/16 10:05:36 by mdodevsk         ###   ########.fr       */
+/*   Updated: 2025/01/16 12:10:19 by mdodevsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,12 +28,11 @@ t_stack_node	*new_node(int n)
 
 void	print_list(t_stack_node *head)
 {
+	printf("-------------------------------------\n");
 	while (head != NULL)
 	{
-		printf("la valeur de la mediane est %d\n", head->median);
-		printf("la valeur du coup est de %d\n", head->cost);
-		printf("la valeur de l'index %d\n", head->index);
-
+		printf("|| content %d || index %d || cost %d || target %d\n",head->content, head->index, head->cost, head->target->content);
+		printf("Median: %s\n", head->cheapest ? "true" : "false");
 		head = head->next;
 	}
 }
@@ -80,18 +79,16 @@ int main(int ac, char **av)
 {
 	t_stack_node	*stack_a;
 	t_stack_node	*stack_b;
-	char			*strs[] = {"7", "1", "4", "3", "87", NULL};
+	char			*strs[] = {"7", "1", "4", "3", "8", "33", "12", "17", NULL};
 	char			**strss;
 	init_stacks(&stack_a, &stack_b);
 	stack_a = fill_list(strs);
 	if (!stack_a )
 		return (0);
 	//get_index(stack_a);
-	get_index(stack_a);
-	get_median(stack_a);
-	get_cost(stack_a);
+	sort_stack(&stack_a, &stack_b);	
 	print_list(stack_a);
-	// sort_stack(&stack_a, &stack_b);
+	//print_list(stack_b);
 	// printf("%d\n", stack_a->content);
 	// stack_a = stack_a->next;
 	// printf("%d\n", stack_a->content);

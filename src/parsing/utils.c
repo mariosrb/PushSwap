@@ -6,7 +6,7 @@
 /*   By: mdodevsk <mdodevsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/05 12:22:16 by mdodevsk          #+#    #+#             */
-/*   Updated: 2025/01/16 10:31:47 by mdodevsk         ###   ########.fr       */
+/*   Updated: 2025/01/16 11:25:58 by mdodevsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,12 @@ void	free_matrice(int ac, char **av, char **strs)
 	}
 }
 
-void	free_and_error(t_stack_node **stack_a, t_stack_node **stack_b)
+int	free_and_error(t_stack_node **stack_a, t_stack_node **stack_b)
 {
 	if (stack_a || *stack_a)
 		free_list(*stack_a);
 	if (stack_b || *stack_b)
-		free_list(stack_b);
+		free_list(*stack_b);
 	write (2, "Error\n", 6);
 	return (1);
 }
