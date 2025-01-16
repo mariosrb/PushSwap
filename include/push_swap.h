@@ -6,7 +6,7 @@
 /*   By: mdodevsk <mdodevsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/12 14:31:32 by mdodevsk          #+#    #+#             */
-/*   Updated: 2025/01/15 16:59:29 by mdodevsk         ###   ########.fr       */
+/*   Updated: 2025/01/16 09:59:16 by mdodevsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,8 @@ void			set_target(t_stack_node *stack_a, t_stack_node *stack_b); // a mettrte en
 void			init_stacks(t_stack_node **stack_a, t_stack_node **stack_b);
 void			get_index(t_stack_node *stack);
 void			get_median(t_stack_node *stack);
+void			get_cost(t_stack_node *stack);
+
 
 // Operation
 void			rrr(t_stack_node **head_a, t_stack_node **head_b);

@@ -6,7 +6,7 @@
 /*   By: mdodevsk <mdodevsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 14:54:30 by mdodevsk          #+#    #+#             */
-/*   Updated: 2025/01/15 16:55:15 by mdodevsk         ###   ########.fr       */
+/*   Updated: 2025/01/16 10:05:52 by mdodevsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,18 +33,40 @@ void	get_median(t_stack_node *stack)
 	stack_len = stack_size(stack);
 	if (stack_len % 2 == 0)
 	{
-		while (i != stack_len)
+		while (i != stack_len / 2)
 		{
-			stack->median = true;
+			stack->median = 1;
 			i++;
 			stack = stack->next;
 		}
 	}
 	else
-		while (i != ((stack_len / 2) + 1))
+		while (i != ((stack_len / 2 + 1)))
 		{
-			stack->median = true;
+			stack->median = 1;
 			i++;
 			stack = stack->next;
 		}
+}
+
+void	get_cost(t_stack_node *stack)
+{
+	t_stack_node	*last;
+	int				i;
+
+	if (!stack || !stack->median)
+		return ;
+	i = 1;
+	last = ft_lstlast(stack);
+	while (stack && stack->median == 1)
+	{
+		stack->cost = stack->index;
+		stack = stack->next;
+	}
+	stack = last;
+	while (stack->median == 0)
+	{
+		stack->cost = i++;
+		stack = stack->prev;
+	}
 }
