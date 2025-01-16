@@ -6,7 +6,7 @@
 /*   By: mdodevsk <mdodevsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/12 14:31:32 by mdodevsk          #+#    #+#             */
-/*   Updated: 2025/01/16 09:59:16 by mdodevsk         ###   ########.fr       */
+/*   Updated: 2025/01/16 10:32:34 by mdodevsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,12 +35,13 @@ long			ft_atol(char *str);
 int				check_format(int ac, char **av);
 void			free_matrice(int ac, char **av, char **strs);
 int				verif(int ac, char **av);
+void			free_and_error(t_stack_node **stack_a, t_stack_node **stack_b);
+
 
 // Stack 
 t_stack_node	*new_node(int n);
 t_stack_node	*fill_list(char **strs);
 void			sort_stack(t_stack_node **stack_a, t_stack_node **stack_b);
-void			turkish_sort(t_stack_node **stack_a);
 void			free_list(t_stack_node *list);
 int				stack_size(t_stack_node *stack);
 int				is_sorted(t_stack_node *stack);
