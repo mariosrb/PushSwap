@@ -6,7 +6,7 @@
 /*   By: mdodevsk <mdodevsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 14:54:30 by mdodevsk          #+#    #+#             */
-/*   Updated: 2025/01/16 10:25:28 by mdodevsk         ###   ########.fr       */
+/*   Updated: 2025/01/16 11:10:11 by mdodevsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,4 +69,25 @@ void	get_cost(t_stack_node *stack)
 		stack->cost = i++;
 		stack = stack->prev;
 	}
+}
+
+void	get_cheapest(t_stack_node *stack)
+{
+	t_stack_node	*cheapest;
+	long			cheapest_number;
+
+	cheapest_number = LONG_MAX;
+	cheapest = NULL;
+	if (!stack)
+		return ;
+	while (stack)
+	{
+		if (stack->cost < cheapest_number)
+		{
+			cheapest_number = stack->cost;
+			cheapest = stack;
+		}
+		stack = stack->next;
+	}
+	cheapest->cheapest = true;
 }

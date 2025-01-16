@@ -6,7 +6,7 @@
 /*   By: mdodevsk <mdodevsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/12 14:31:32 by mdodevsk          #+#    #+#             */
-/*   Updated: 2025/01/16 10:32:34 by mdodevsk         ###   ########.fr       */
+/*   Updated: 2025/01/16 11:11:27 by mdodevsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,16 +41,10 @@ void			free_and_error(t_stack_node **stack_a, t_stack_node **stack_b);
 // Stack 
 t_stack_node	*new_node(int n);
 t_stack_node	*fill_list(char **strs);
-void			sort_stack(t_stack_node **stack_a, t_stack_node **stack_b);
 void			free_list(t_stack_node *list);
 int				stack_size(t_stack_node *stack);
 int				is_sorted(t_stack_node *stack);
-void			set_target(t_stack_node *stack_a, t_stack_node *stack_b); // a mettrte en static
 void			init_stacks(t_stack_node **stack_a, t_stack_node **stack_b);
-void			get_index(t_stack_node *stack);
-void			get_median(t_stack_node *stack);
-void			get_cost(t_stack_node *stack);
-
 
 // Operation
 void			rrr(t_stack_node **head_a, t_stack_node **head_b);
@@ -66,7 +60,11 @@ t_stack_node	*max_value(t_stack_node *head);
 t_stack_node	*min_value(t_stack_node *head);
 void			sort_three(t_stack_node **stack);
 void			sort_two(t_stack_node **stack);
-
-
+void			get_cheapest(t_stack_node *stack);
+void			get_index(t_stack_node *stack);
+void			get_median(t_stack_node *stack);
+void			get_cost(t_stack_node *stack);
+void			set_target(t_stack_node *stack_a, t_stack_node *stack_b); // a mettrte en static
+void			sort_stack(t_stack_node **stack_a, t_stack_node **stack_b);
 
 #endif
