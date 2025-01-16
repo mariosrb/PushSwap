@@ -6,7 +6,7 @@
 /*   By: mdodevsk <mdodevsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 14:54:30 by mdodevsk          #+#    #+#             */
-/*   Updated: 2025/01/16 11:10:11 by mdodevsk         ###   ########.fr       */
+/*   Updated: 2025/01/16 17:23:48 by mdodevsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,26 +49,35 @@ void	get_median(t_stack_node *stack)
 		}
 }
 
-void	get_cost(t_stack_node *stack)
+void	get_cost(t_stack_node *stack_a, t_stack_node *stack_b)
 {
-	t_stack_node	*last;
-	int				i;
+    t_stack_node *tmp;
 
-	if (!stack || !stack->median)
-		return ;
-	i = 1;
-	last = ft_lstlast(stack);
-	while (stack && stack->median == 1)
-	{
-		stack->cost = stack->index;
-		stack = stack->next;
-	}
-	stack = last;
-	while (stack->median == 0)
-	{
-		stack->cost = i++;
-		stack = stack->prev;
-	}
+    if (!stack_a)
+        return;
+    tmp = stack_a;
+    while (tmp)
+    {
+        // Si déjà au dessus de stack_a (index 0)
+        if (tmp->index == 0)
+            tmp->cost = 0;
+        // Si pas au dessus, coût = nombre de rotations nécessaires
+        else if (tmp->median == 1)
+            tmp->cost = tmp->index;
+        else
+            tmp->cost = stack_size(stack_a) - tmp->index;
+
+        // Pour le target dans stack_b
+        // Si target déjà au dessus de stack_b (index 0)
+        if (tmp->target->index == 0)
+            tmp->cost += 0;
+        // Si pas au dessus, ajout du nombre de rotations nécessaires
+        else if (tmp->target->median == 1)
+            tmp->cost += tmp->target->index;
+        else
+            tmp->cost += stack_size(stack_b) - tmp->target->index;
+        tmp = tmp->next;
+    }
 }
 
 void	get_cheapest(t_stack_node *stack)

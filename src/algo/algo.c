@@ -6,7 +6,7 @@
 /*   By: mdodevsk <mdodevsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 15:51:45 by mdodevsk          #+#    #+#             */
-/*   Updated: 2025/01/16 15:47:38 by mdodevsk         ###   ########.fr       */
+/*   Updated: 2025/01/16 17:02:52 by mdodevsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ void	init_values(t_stack_node *stack_a, t_stack_node *stack_b)
 	get_index(stack_a);
 	get_index(stack_b);
 	get_median(stack_a);
-	get_cost(stack_a);
+	get_cost(stack_a, stack_b);
 	get_cheapest(stack_a);
 }
 
@@ -84,14 +84,14 @@ void	first_step(t_stack_node **stack_a, t_stack_node **stack_b)
 		pa(&(*stack_a), &(*stack_b));
 		sort_three(&(*stack_a));
 	}
-	pa(&(*stack_a), &(*stack_b));
-	pa(&(*stack_a), &(*stack_b));
+	// pa(&(*stack_a), &(*stack_b));
+	// pa(&(*stack_a), &(*stack_b));
 	while (stack_size(*stack_a) != 3)
 	{
 		init_values(*stack_a, *stack_b);
 		push_to_b(stack_a, stack_b);
 	}
-	sort_three(&(*stack_a));
+	//sort_three(&(*stack_a));
 	print_list(*stack_a);
 	print_list(*stack_b);
 }
