@@ -6,7 +6,7 @@
 /*   By: mdodevsk <mdodevsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 15:51:45 by mdodevsk          #+#    #+#             */
-/*   Updated: 2025/01/16 17:02:52 by mdodevsk         ###   ########.fr       */
+/*   Updated: 2025/01/17 11:46:44 by mdodevsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,16 +84,14 @@ void	first_step(t_stack_node **stack_a, t_stack_node **stack_b)
 		pa(&(*stack_a), &(*stack_b));
 		sort_three(&(*stack_a));
 	}
-	// pa(&(*stack_a), &(*stack_b));
-	// pa(&(*stack_a), &(*stack_b));
+	//pa(&(*stack_a), &(*stack_b));
+	//pa(&(*stack_a), &(*stack_b));
 	while (stack_size(*stack_a) != 3)
 	{
 		init_values(*stack_a, *stack_b);
 		push_to_b(stack_a, stack_b);
 	}
-	//sort_three(&(*stack_a));
-	print_list(*stack_a);
-	print_list(*stack_b);
+	sort_three(&(*stack_a));
 }
 
 void	sort_stack(t_stack_node **stack_a, t_stack_node **stack_b)

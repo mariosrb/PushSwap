@@ -6,7 +6,7 @@
 /*   By: mdodevsk <mdodevsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/12 14:47:36 by mdodevsk          #+#    #+#             */
-/*   Updated: 2025/01/16 17:06:20 by mdodevsk         ###   ########.fr       */
+/*   Updated: 2025/01/17 13:24:14 by mdodevsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,23 +31,22 @@ void	print_list(t_stack_node *head)
 	printf("-------------------------------------\n");
 	while (head != NULL)
 	{
-		printf("|| content %d || index %d || mediane %d || cost %d || target %d\n",head->content, head->index, head->median, head->cost, head->target->content);
-		printf("Median: %s\n", head->cheapest ? "true" : "false");
-		// printf("%d\n", head->content);
+		// printf("|| content %d || index %d || mediane %d || cost %d || target %d\n",head->content, head->index, head->median, head->cost, head->target->content);
+		// printf("Median: %s\n", head->cheapest ? "true" : "false");
+		printf("%d\n", head->content);
 		head = head->next;
 	}
 }
 
-void	print_list_prev(t_stack_node *head)
+void	print_list_all(t_stack_node *head)
 {
 	printf("-------------------------------------\n");
-	head = ft_lstlast(head);
 	while (head != NULL)
 	{
 		printf("|| content %d || index %d || mediane %d || cost %d || target %d\n",head->content, head->index, head->median, head->cost, head->target->content);
 		printf("Cheapest: %s\n", head->cheapest ? "true" : "false");
 		//printf("%d\n", head->content);
-		head = head->prev;
+		head = head->next;
 	}
 }
 
@@ -95,29 +94,19 @@ int main(int ac, char **av)
 	t_stack_node	*stack_b;
 	//char			*strs[] = {"7", "1", "4", "3", "8", "33", "12", "17", NULL};
 	char			*strs[] = {"19", "9", "4", "3", "8", NULL};
-	char			*strss[] = {"7", "12", "34", "17", "457", "43", NULL};
+	//char			*strss[] = {"7", "12", "34", "17", "457", "43", NULL};
+	char			*strss[] = {"7", "11", "12", "34", "17", "457", "43", NULL};
+
 	//char			**strss;
 	init_stacks(&stack_a, &stack_b);
 	stack_a = fill_list(strs);
 	stack_b = fill_list(strss);
 	if (!stack_a )
 		return (0);
-	//first_step(&stack_a, & stack_b);
-	//sort_stack(&stack_a, &stack_b);
 	init_values(stack_a, stack_b);
+	push_to_b(&stack_a, &stack_b);
 	print_list(stack_a);
-	//push_to_b(&stack_a, &stack_b);
-	//print_list(stack_a);
-	//print_list(stack_b);
-	//print_list_prev(stack_a);
-	//print_list(stack_b);
-	// printf("%d\n", stack_a->content);
-	// stack_a = stack_a->next;
-	// printf("%d\n", stack_a->content);
-	// stack_a = stack_a->next;
-	// printf("%d\n", stack_a->content);
-	// stack_a = stack_a->next;
-	// printf("b--%d\n", stack_b->content);
+	print_list_all(stack_a);
 	return (0);
 }
 
