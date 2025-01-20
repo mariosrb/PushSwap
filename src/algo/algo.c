@@ -6,7 +6,7 @@
 /*   By: mdodevsk <mdodevsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 15:51:45 by mdodevsk          #+#    #+#             */
-/*   Updated: 2025/01/20 11:15:25 by mdodevsk         ###   ########.fr       */
+/*   Updated: 2025/01/20 15:13:17 by mdodevsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,12 +46,8 @@ void	push_to_b(t_stack_node **stack_a, t_stack_node **stack_b)
 	t_stack_node	*current;
 
 	current = *stack_a;
-	while (current)
-	{
-		if (current->cheapest == true)
-			break;
+	while (current->cheapest != true)
 		current = current->next;
-	}
 	if (current->median == 1)
 	{
 		while (current != *stack_a)
@@ -62,7 +58,6 @@ void	push_to_b(t_stack_node **stack_a, t_stack_node **stack_b)
 			while (current != *stack_a)
 				rra(stack_a);
 		}
-	//printf("\nindex cible %d mediane cible %d\n", current->target->index, current->target->median);
 	while (current->target->index != 0)
 	{
 		if (current->target->median == 1)
@@ -96,8 +91,8 @@ void	first_step(t_stack_node **stack_a, t_stack_node **stack_b)
 		pa(&(*stack_a), &(*stack_b));
 		sort_three(&(*stack_a));
 	}
-	//pa(&(*stack_a), &(*stack_b));
-	//pa(&(*stack_a), &(*stack_b));
+	pa(&(*stack_a), &(*stack_b));
+	pa(&(*stack_a), &(*stack_b));
 	while (stack_size(*stack_a) != 3)
 	{
 		init_values(*stack_a, *stack_b);
@@ -113,6 +108,7 @@ void	sort_stack(t_stack_node **stack_a, t_stack_node **stack_b)
 	else if (stack_size(*stack_a) == 3)
 		return (sort_three(&(*stack_a)));
 	first_step(&(*stack_a), &(*stack_b));
+	
 }
 
 // int main(int ac, char **av)

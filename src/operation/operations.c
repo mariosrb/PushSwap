@@ -6,7 +6,7 @@
 /*   By: mdodevsk <mdodevsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/12 14:47:36 by mdodevsk          #+#    #+#             */
-/*   Updated: 2025/01/20 14:30:00 by mdodevsk         ###   ########.fr       */
+/*   Updated: 2025/01/20 15:12:54 by mdodevsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,16 +91,31 @@ int main(int ac, char **av)
 {
 	t_stack_node	*stack_a;
 	t_stack_node	*stack_b;
-	//char			*strs[] = {"7", "1", "4", "3", "8", "33", "12", "17", NULL};
+	char			*strs[] = {"7", "1", "4", "3", "8", "33", "12", "17", NULL};
 	//char			*strs[] = {"19", "9", "4", "3", "8", NULL};
 	//char			*strss[] = {"7", "12", "34", "17", "457", "43", NULL};
 	//char			*strss[] = {"7", "11", "12", "34", "17", "457", "43", NULL};
 	//char			**strss;
 
-	//char 			*strs[] = {"23", "7", "15", "42", "3", "9", "30", NULL};
-	char			*strs[] = {"31", "4", "55", "13", "98", "76", "3", "27", "19", "88", "42", "1", "69", "7", "50", NULL};
+// char *strs[] = {
+//     "902", "554", "666", "555", "48", "77", "539", "945", "187", "805",
+//     "171", "13", "696", "910", "759", "646", "464", "837", "773", "265",
+//     "374", "105", "581", "504", "397", "52", "538", "460", "637", "935",
+//     "197", "455", "893", "235", "391", "498", "536", "145", "225", "638",
+//     "762", "523", "982", "492", "900", "281", "972", "933", "488", "85",
+//     "830", "999", "632", "678", "433", "324", "932", "734", "620", "732",
+//     "206", "766", "909", "629", "122", "692", "742", "260", "149", "791",
+//     "862", "989", "969", "144", "757", "509", "193", "855", "557", "334",
+//     "968", "996", "688", "681", "912", "257", "655", "534", "979", "203",
+//     "365", "458", "512", "931", "395", "558", "611", "870", "683", "93",
+//     "478", "72", "431", "255", "384", "566", "926", "522", "888", "468",
+//     "445", "520", "480", "744", "310", "959", "83", "647", "233", "853",
+//     "527", "487", "301", "526", "941", "109", "858", "992", "694", "674",
+//     "753", "229", "403", "308", "36", "400", "462", "23", "111", "312",
+//     "84", "476", "399", "833", "641", "140", "490", "130", "406", "117",
+//     NULL
+// };
 
-	//char			*strss[] = {NULL};
 
 	
 	init_stacks(&stack_a, &stack_b);
@@ -108,21 +123,7 @@ int main(int ac, char **av)
 	stack_a = fill_list(strs);
 	//stack_b = fill_list(strss);
 	
-	pa(&stack_a, &stack_b);
-	pa(&stack_a, &stack_b);
-	
-	init_values(stack_a, stack_b);
-	
-
-
-
-
-
-
-
-
-
-
+	sort_stack(&stack_a, &stack_b);
 
 
 	
@@ -130,60 +131,55 @@ int main(int ac, char **av)
 	//////////////////////////TEST PUSH TO B//////////////////////////////////////
 	//////////////////////////////////////////////////////////////////////////////
 	
-
-	
 	printf("\nSTACK A\n");
 	print_list(stack_a);
 	
 	printf("\nSTACK B\n");
 	print_list(stack_b);
 	
-	printf("\n-------------------------------------\n");
-	print_list_all(stack_a);
+	// printf("\n-------------------------------------\n");
+	// print_list_all(stack_a);
 	
-	push_to_b(&stack_a, &stack_b);
+	// push_to_b(&stack_a, &stack_b);
 	
-	printf("\n-------------------------------------\n");
-	printf("\nSTACK A\n");
-	print_list(stack_a);
-	printf("\nSTACK B\n");
-	print_list(stack_b);
-	init_values(stack_a, stack_b);
+	// printf("\n-------------------------------------\n");
+	// printf("\nSTACK A\n");
+	// print_list(stack_a);
+	// printf("\nSTACK B\n");
+	// print_list(stack_b);
+	// init_values(stack_a, stack_b);
 	// print_list_all(stack_a);
 	// push_to_b(&stack_a, &stack_b);
 
+	// init_values(stack_a, stack_b);
+	// push_to_b(&stack_a, &stack_b);
 
+	// init_values(stack_a, stack_b);
+	// push_to_b(&stack_a, &stack_b);
+	// init_values(stack_a, stack_b);
+	// push_to_b(&stack_a, &stack_b);
+	// init_values(stack_a, stack_b);
+	// push_to_b(&stack_a, &stack_b);
+	// init_values(stack_a, stack_b);
+	// push_to_b(&stack_a, &stack_b);
+	// init_values(stack_a, stack_b);
+	// push_to_b(&stack_a, &stack_b);
+	// init_values(stack_a, stack_b);
+	// push_to_b(&stack_a, &stack_b);
+	// init_values(stack_a, stack_b);
+	// push_to_b(&stack_a, &stack_b);	
+	// sort_three(&stack_a);
 	
-	sort_three(&stack_a);
+	// printf("\n-------------------------------------\n");
+	// printf("\nSTACK A\n");
+	// print_list(stack_a);
 	
-	printf("\n-------------------------------------\n");
-	printf("\nSTACK A\n");
-	print_list(stack_a);
-	
-	printf("\nSTACK B\n");
-	print_list(stack_b);
+	// printf("\nSTACK B\n");
+	// print_list(stack_b);
 	
 	//////////////////////////////////////////////////////////////////////////////
 	//////////////////////////////////////////////////////////////////////////////
 	//////////////////////////////////////////////////////////////////////////////
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
