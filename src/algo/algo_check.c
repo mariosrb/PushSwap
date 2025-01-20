@@ -102,3 +102,36 @@ void	get_cheapest(t_stack_node *stack)
 	}
 	cheapest->cheapest = true;
 }
+
+void	second_step(t_stack_node **stack_a, t_stack_node **stack_b)
+{
+}
+
+void	set_second_target(t_stack_node **stack_a, t_stack_node **stack_b)
+{
+	t_stack_node	*target;
+	t_stack_node	*head_b;
+	long			target_number;
+
+	head_b = stack_b;
+	while (stack_a)
+	{
+		target_number = LONG_MAX;
+		target = NULL;
+		while (stack_b)
+		{
+			if (stack_b->content < target_number
+				&& stack_a->content < stack_b->content)
+				{
+					target_number = stack_b->content;
+					target = stack_b;
+				}
+			stack_b = stack_b->next;
+		}
+		if (!target)
+			target = min_value(head_b);
+		stack_a->target = target;
+		stack_a = stack_a->next;
+		stack_b = head_b;
+	}
+}

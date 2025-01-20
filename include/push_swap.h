@@ -71,6 +71,8 @@ void			sort_stack(t_stack_node **stack_a, t_stack_node **stack_b);
 void			init_values(t_stack_node *stack_a, t_stack_node *stack_b);
 void			push_to_b(t_stack_node **stack_a, t_stack_node **stack_b); // static ?
 void			first_step(t_stack_node **stack_a, t_stack_node **stack_b); // static
+void        	second_step(&(*stack_a), &(*stack_b));
+
 
 
 #endif

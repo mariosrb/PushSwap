@@ -108,7 +108,7 @@ void	sort_stack(t_stack_node **stack_a, t_stack_node **stack_b)
 	else if (stack_size(*stack_a) == 3)
 		return (sort_three(&(*stack_a)));
 	first_step(&(*stack_a), &(*stack_b));
-	
+	second_step(&(*stack_a), &(*stack_b));
 }
 
 // int main(int ac, char **av)
