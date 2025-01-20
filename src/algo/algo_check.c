@@ -6,7 +6,7 @@
 /*   By: mdodevsk <mdodevsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 14:54:30 by mdodevsk          #+#    #+#             */
-/*   Updated: 2025/01/17 11:18:13 by mdodevsk         ###   ########.fr       */
+/*   Updated: 2025/01/20 14:47:37 by mdodevsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,18 @@ void	get_index(t_stack_node *stack)
 
 void	get_median(t_stack_node *stack)
 {
-	int i;
-	int	stack_len;
+	int				 i;
+	int				stack_len;
+	t_stack_node	*tmp;
 
+	if (!stack)
+		return ;
+	tmp = stack;
+	while (tmp)
+	{
+		tmp->median = 0;
+		tmp = tmp->next;
+	}
 	i = 0;
 	stack_len = stack_size(stack);
 	if (stack_len % 2 == 0)
@@ -56,20 +65,29 @@ void	get_cost(t_stack_node *stack_a, t_stack_node *stack_b)
 	if (!stack_a)
 		return;
 	tmp = stack_a;
+	printf("size stack_a: %d\n", stack_size(stack_a));
+	printf("size stack_b: %d\n", stack_size(stack_b));
 	while (tmp)
 	{
+		tmp->cost = 0;
+		printf("\nNode %d:\n", tmp->content);
+        printf("index: %d, median: %d\n", tmp->index, tmp->median);
+        printf("target: %d, target_index: %d, target_median: %d\n", tmp->target->content, tmp->target->index, tmp->target->median);
 		if (tmp->index == 0)
 			tmp->cost = 0;
 		else if (tmp->median == 1)
 			tmp->cost = tmp->index;
 		else
 			tmp->cost = stack_size(stack_a) - tmp->index;
+		printf("After stack_a cost: %d\n", tmp->cost);
 		if (tmp->target->index == 0)
 			tmp->cost += 0;
 		else if (tmp->target->median == 1)
 			tmp->cost += tmp->target->index;
 		else
 			tmp->cost += stack_size(stack_b) - tmp->target->index;
+		//printf("%d cout --> %d\n", tmp->content, tmp->cost);
+		printf("After stack_b cost: %d\n", tmp->cost);
 		tmp = tmp->next;
 	}
 }
