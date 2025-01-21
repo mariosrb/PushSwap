@@ -6,7 +6,7 @@
 /*   By: mdodevsk <mdodevsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/12 14:31:32 by mdodevsk          #+#    #+#             */
-/*   Updated: 2025/01/21 12:03:40 by mdodevsk         ###   ########.fr       */
+/*   Updated: 2025/01/21 15:13:42 by mdodevsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,8 @@
 // 	int					content;
 // 	int					cost;
 // 	int					index;
-// 	bool				median;
-// 	bool				cheap;
-
+// 	int					median;
+// 	bool				cheapest;
 // 	struct s_stack_node	*next;
 // 	struct s_stack_node	*prev;
 // 	struct s_stack_node	*target;
