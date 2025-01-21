@@ -6,7 +6,7 @@
 /*   By: mdodevsk <mdodevsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 14:54:30 by mdodevsk          #+#    #+#             */
-/*   Updated: 2025/01/20 15:06:44 by mdodevsk         ###   ########.fr       */
+/*   Updated: 2025/01/21 10:38:06 by mdodevsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,33 +105,34 @@ void	get_cheapest(t_stack_node *stack)
 
 void	second_step(t_stack_node **stack_a, t_stack_node **stack_b)
 {
+	
 }
 
-void	set_second_target(t_stack_node **stack_a, t_stack_node **stack_b)
+void	set_second_target(t_stack_node *stack_a, t_stack_node *stack_b)
 {
 	t_stack_node	*target;
-	t_stack_node	*head_b;
+	t_stack_node	*head_a;
 	long			target_number;
 
-	head_b = stack_b;
-	while (stack_a)
+	head_a = stack_a;
+	while (stack_b)
 	{
 		target_number = LONG_MAX;
 		target = NULL;
-		while (stack_b)
+		while (stack_a)
 		{
-			if (stack_b->content < target_number
-				&& stack_a->content < stack_b->content)
+			if (stack_a->content < target_number
+				&& stack_b->content < stack_a->content)
 				{
-					target_number = stack_b->content;
-					target = stack_b;
+					target_number = stack_a->content;
+					target = stack_a;
 				}
-			stack_b = stack_b->next;
+			stack_a = stack_a->next;
 		}
 		if (!target)
-			target = min_value(head_b);
-		stack_a->target = target;
-		stack_a = stack_a->next;
-		stack_b = head_b;
+			target = min_value(head_a);
+		stack_b->target = target;
+		stack_b = stack_b->next;
+		stack_a = head_a;
 	}
 }

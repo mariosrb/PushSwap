@@ -6,7 +6,7 @@
 /*   By: mdodevsk <mdodevsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/12 14:31:32 by mdodevsk          #+#    #+#             */
-/*   Updated: 2025/01/16 17:02:30 by mdodevsk         ###   ########.fr       */
+/*   Updated: 2025/01/21 10:48:26 by mdodevsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,8 +71,7 @@ void			sort_stack(t_stack_node **stack_a, t_stack_node **stack_b);
 void			init_values(t_stack_node *stack_a, t_stack_node *stack_b);
 void			push_to_b(t_stack_node **stack_a, t_stack_node **stack_b); // static ?
 void			first_step(t_stack_node **stack_a, t_stack_node **stack_b); // static
-void        	second_step(&(*stack_a), &(*stack_b));
-
-
+void        	second_step(t_stack_node **stack_a, t_stack_node **stack_b);
+void			set_second_target(t_stack_node *stack_a, t_stack_node *stack_b);
 
 #endif

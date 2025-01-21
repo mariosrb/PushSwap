@@ -6,7 +6,7 @@
 /*   By: mdodevsk <mdodevsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/12 14:47:36 by mdodevsk          #+#    #+#             */
-/*   Updated: 2025/01/20 15:12:54 by mdodevsk         ###   ########.fr       */
+/*   Updated: 2025/01/21 10:42:13 by mdodevsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void	print_list_all(t_stack_node *head)
 {
 	while (head != NULL)
 	{
-		printf("\ncontent %d || index %d || mediane %d || cost %d || target %d || cheapest %s\n",head->content, head->index, head->median, head->cost, head->target->content, head->cheapest ? "true" : "false");
+		printf("\n Noeu : %d Indice : %d\n", head->content, head->target->content);
 		//printf("%d\n", head->content);
 		head = head->next;
 	}
@@ -91,7 +91,7 @@ int main(int ac, char **av)
 {
 	t_stack_node	*stack_a;
 	t_stack_node	*stack_b;
-	char			*strs[] = {"7", "1", "4", "3", "8", "33", "12", "17", NULL};
+	char			*strs[] = {"5", "1", "4", "3", "8", "2", "7", "9", NULL};
 	//char			*strs[] = {"19", "9", "4", "3", "8", NULL};
 	//char			*strss[] = {"7", "12", "34", "17", "457", "43", NULL};
 	//char			*strss[] = {"7", "11", "12", "34", "17", "457", "43", NULL};
@@ -117,15 +117,14 @@ int main(int ac, char **av)
 // };
 
 
-	
 	init_stacks(&stack_a, &stack_b);
 	
 	stack_a = fill_list(strs);
 	//stack_b = fill_list(strss);
 	
 	sort_stack(&stack_a, &stack_b);
-
-
+	set_second_target(stack_a, stack_b);
+	print_list_all(stack_b);
 	
 	//////////////////////////////////////////////////////////////////////////////
 	//////////////////////////TEST PUSH TO B//////////////////////////////////////
