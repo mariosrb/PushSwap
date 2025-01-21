@@ -6,7 +6,7 @@
 /*   By: mdodevsk <mdodevsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 14:54:30 by mdodevsk          #+#    #+#             */
-/*   Updated: 2025/01/21 10:38:06 by mdodevsk         ###   ########.fr       */
+/*   Updated: 2025/01/21 12:03:34 by mdodevsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void	get_median(t_stack_node *stack)
 	}
 }
 
-void	get_cost(t_stack_node *stack_a, t_stack_node *stack_b)
+void	get_first_cost(t_stack_node *stack_a, t_stack_node *stack_b)
 {
 	t_stack_node	*tmp;
 
@@ -101,11 +101,6 @@ void	get_cheapest(t_stack_node *stack)
 		stack = stack->next;
 	}
 	cheapest->cheapest = true;
-}
-
-void	second_step(t_stack_node **stack_a, t_stack_node **stack_b)
-{
-	
 }
 
 void	set_second_target(t_stack_node *stack_a, t_stack_node *stack_b)

@@ -6,7 +6,7 @@
 /*   By: mdodevsk <mdodevsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 15:51:45 by mdodevsk          #+#    #+#             */
-/*   Updated: 2025/01/20 15:13:17 by mdodevsk         ###   ########.fr       */
+/*   Updated: 2025/01/21 12:37:59 by mdodevsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,16 +69,42 @@ void	push_to_b(t_stack_node **stack_a, t_stack_node **stack_b)
 	pa(stack_a, stack_b);
 }
 
-void	init_values(t_stack_node *stack_a, t_stack_node *stack_b)
+void	push_to_a(t_stack_node **stack_a, t_stack_node **stack_b)
+{
+	t_stack_node	*current;
+
+	current = (*stack_b)->target;
+	if (current->index != 0)
+	{
+		if (current->median == 1)
+			while ((*stack_a)->content != current->content)
+				ra(stack_a);
+		else
+			while ((*stack_a)->content != current->content)
+				rra(stack_a);
+	}
+	pa(stack_b, stack_a);
+}
+
+void	init_first_values(t_stack_node *stack_a, t_stack_node *stack_b)
 {
 	set_target(stack_a, stack_b);
 	get_index(stack_a);
 	get_index(stack_b);
 	get_median(stack_a);
 	get_median(stack_b);
-	get_cost(stack_a, stack_b);
+	get_first_cost(stack_a, stack_b);
 	get_cheapest(stack_a);
 	get_cheapest(stack_b);
+}
+
+void	init_second_values(t_stack_node *stack_a, t_stack_node *stack_b)
+{
+	set_second_target(stack_a, stack_b);
+	get_index(stack_a);
+	get_index(stack_b);
+	get_median(stack_a);
+	get_median(stack_b);
 }
 
 void	first_step(t_stack_node **stack_a, t_stack_node **stack_b)
@@ -95,10 +121,18 @@ void	first_step(t_stack_node **stack_a, t_stack_node **stack_b)
 	pa(&(*stack_a), &(*stack_b));
 	while (stack_size(*stack_a) != 3)
 	{
-		init_values(*stack_a, *stack_b);
+		init_first_values(*stack_a, *stack_b);
 		push_to_b(stack_a, stack_b);
 	}
 	sort_three(&(*stack_a));
+}
+void	second_step(t_stack_node **stack_a, t_stack_node **stack_b)
+{
+	while (*stack_b)
+	{
+		init_second_values(*stack_a, *stack_b);
+		push_to_a(stack_a, stack_b);
+	}
 }
 
 void	sort_stack(t_stack_node **stack_a, t_stack_node **stack_b)
@@ -108,7 +142,17 @@ void	sort_stack(t_stack_node **stack_a, t_stack_node **stack_b)
 	else if (stack_size(*stack_a) == 3)
 		return (sort_three(&(*stack_a)));
 	first_step(&(*stack_a), &(*stack_b));
-	second_step(&(*stack_a), &(*stack_b));
+	//second_step(&(*stack_a), &(*stack_b));
+			init_second_values(*stack_a, *stack_b);
+		push_to_a(stack_a, stack_b);
+				init_second_values(*stack_a, *stack_b);
+		push_to_a(stack_a, stack_b);
+				init_second_values(*stack_a, *stack_b);
+		push_to_a(stack_a, stack_b);
+				init_second_values(*stack_a, *stack_b);
+		push_to_a(stack_a, stack_b);
+		// 		init_second_values(*stack_a, *stack_b);
+		// push_to_a(stack_a, stack_b);
 }
 
 // int main(int ac, char **av)

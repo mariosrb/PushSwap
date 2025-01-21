@@ -6,7 +6,7 @@
 /*   By: mdodevsk <mdodevsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/12 14:47:36 by mdodevsk          #+#    #+#             */
-/*   Updated: 2025/01/21 10:42:13 by mdodevsk         ###   ########.fr       */
+/*   Updated: 2025/01/21 12:38:32 by mdodevsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,8 +123,7 @@ int main(int ac, char **av)
 	//stack_b = fill_list(strss);
 	
 	sort_stack(&stack_a, &stack_b);
-	set_second_target(stack_a, stack_b);
-	print_list_all(stack_b);
+	//print_list_all(stack_b);
 	
 	//////////////////////////////////////////////////////////////////////////////
 	//////////////////////////TEST PUSH TO B//////////////////////////////////////
