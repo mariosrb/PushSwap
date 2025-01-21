@@ -6,7 +6,7 @@
 /*   By: mdodevsk <mdodevsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 12:48:08 by mdodevsk          #+#    #+#             */
-/*   Updated: 2025/01/13 12:48:22 by mdodevsk         ###   ########.fr       */
+/*   Updated: 2025/01/21 14:44:50 by mdodevsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ void	sa(t_stack_node **head)
 	tmp2->next = *head;
 	tmp2->prev = NULL;
 	*head = tmp2;
+	write (1, "sa\n", 3);
 }
 void	ss(t_stack_node **head_a, t_stack_node **head_b)
 {

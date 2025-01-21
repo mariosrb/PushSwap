@@ -6,7 +6,7 @@
 /*   By: mdodevsk <mdodevsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 15:51:45 by mdodevsk          #+#    #+#             */
-/*   Updated: 2025/01/21 12:37:59 by mdodevsk         ###   ########.fr       */
+/*   Updated: 2025/01/21 14:56:53 by mdodevsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -133,6 +133,22 @@ void	second_step(t_stack_node **stack_a, t_stack_node **stack_b)
 		init_second_values(*stack_a, *stack_b);
 		push_to_a(stack_a, stack_b);
 	}
+	// while (max_value(*stack_b)->index != 0)
+	// {
+	// 	if (max_value(*stack_b)->median == 1)
+	// 		ra(stack_b);
+	// 	else
+	// 		rra(stack_b);
+	// 	get_index(*stack_b);
+	// }
+	while (min_value(*stack_a)->index != 0)
+	{
+		if (min_value(*stack_a)->median == 1)
+			ra(stack_a);
+		else
+			rra(stack_a);
+		get_index(*stack_a);
+	}
 }
 
 void	sort_stack(t_stack_node **stack_a, t_stack_node **stack_b)
@@ -142,17 +158,7 @@ void	sort_stack(t_stack_node **stack_a, t_stack_node **stack_b)
 	else if (stack_size(*stack_a) == 3)
 		return (sort_three(&(*stack_a)));
 	first_step(&(*stack_a), &(*stack_b));
-	//second_step(&(*stack_a), &(*stack_b));
-			init_second_values(*stack_a, *stack_b);
-		push_to_a(stack_a, stack_b);
-				init_second_values(*stack_a, *stack_b);
-		push_to_a(stack_a, stack_b);
-				init_second_values(*stack_a, *stack_b);
-		push_to_a(stack_a, stack_b);
-				init_second_values(*stack_a, *stack_b);
-		push_to_a(stack_a, stack_b);
-		// 		init_second_values(*stack_a, *stack_b);
-		// push_to_a(stack_a, stack_b);
+	second_step(&(*stack_a), &(*stack_b));
 }
 
 // int main(int ac, char **av)

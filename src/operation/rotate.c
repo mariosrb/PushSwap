@@ -6,7 +6,7 @@
 /*   By: mdodevsk <mdodevsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 12:43:00 by mdodevsk          #+#    #+#             */
-/*   Updated: 2025/01/13 12:47:15 by mdodevsk         ###   ########.fr       */
+/*   Updated: 2025/01/21 14:44:12 by mdodevsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ void	ra(t_stack_node **head)
 	(*head)->prev = NULL;
 	first->next = NULL;
 	first->prev = tmp;
+	write(1, "ra\n", 3);
 }
 
 void	rr(t_stack_node **head_a, t_stack_node **head_b)
@@ -59,6 +60,7 @@ void	rra(t_stack_node **head)
 	last->next = NULL;
 	(*head)->prev = tmp;
 	*head = tmp;
+	write(1, "rra\n", 4);
 }
 
 void	rrr(t_stack_node **head_a, t_stack_node **head_b)
