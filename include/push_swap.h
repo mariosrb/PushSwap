@@ -6,7 +6,7 @@
 /*   By: mdodevsk <mdodevsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/12 14:31:32 by mdodevsk          #+#    #+#             */
-/*   Updated: 2025/01/21 15:13:42 by mdodevsk         ###   ########.fr       */
+/*   Updated: 2025/01/22 11:28:31 by mdodevsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,9 +50,12 @@ void			init_stacks(t_stack_node **stack_a, t_stack_node **stack_b);
 // Operation
 void			rrr(t_stack_node **head_a, t_stack_node **head_b);
 void			rra(t_stack_node **head);
+void			rrb(t_stack_node **head);
 void			rr(t_stack_node **head_a, t_stack_node **head_b);
 void			ra(t_stack_node **head);
+void			rb(t_stack_node **head);
 void			pa(t_stack_node **before, t_stack_node **after);
+void			pb(t_stack_node **before, t_stack_node **after);
 void			ss(t_stack_node **head_a, t_stack_node **head_b);
 void			sa(t_stack_node **head);
 
@@ -68,6 +71,7 @@ void			get_first_cost(t_stack_node *stack_a, t_stack_node *stack_b);
 void			set_target(t_stack_node *stack_a, t_stack_node *stack_b); // a mettrte en static
 void			sort_stack(t_stack_node **stack_a, t_stack_node **stack_b);
 void			init_first_values(t_stack_node *stack_a, t_stack_node *stack_b);
+void			init_second_values(t_stack_node *stack_a, t_stack_node *stack_b);
 void			push_to_b(t_stack_node **stack_a, t_stack_node **stack_b); // static ?
 void			first_step(t_stack_node **stack_a, t_stack_node **stack_b); // static
 void        	second_step(t_stack_node **stack_a, t_stack_node **stack_b);
