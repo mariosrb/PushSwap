@@ -6,7 +6,7 @@
 /*   By: mdodevsk <mdodevsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/05 12:22:16 by mdodevsk          #+#    #+#             */
-/*   Updated: 2025/01/22 10:22:13 by mdodevsk         ###   ########.fr       */
+/*   Updated: 2025/01/22 16:17:48 by mdodevsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,13 @@
 
 void	free_matrice(int ac, char **av, char **strs)
 {
-	int	i = 0;
+	int	i;
+
+	i = 0;
 	if (ac == 2)
 	{
 		while (strs[i])
-		{
-			free(strs[i]);
-			i++;
-		}
+			free(strs[i++]);
 		free(strs);
 	}
 }
@@ -43,6 +42,18 @@ static int	ft_isspace(char c)
 	return (0);
 }
 
+void	free_list(t_stack_node *list)
+{
+	t_stack_node	*tmp;
+
+	while (list != NULL)
+	{
+		tmp = list;
+		list = list->next;
+		free(tmp);
+	}
+}
+
 long	ft_atol(char *str)
 {
 	long	number;
@@ -60,7 +71,7 @@ long	ft_atol(char *str)
 			sign++;
 		i++;
 	}
-	while (str[i] >= '0' && str[i] <= '9' && str[i] != '0')
+	while (str[i] >= '0' && str[i] <= '9' && str[i] != '\0')
 	{
 		number = (number * 10) + str[i] - '0';
 		i++;

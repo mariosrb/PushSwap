@@ -6,7 +6,7 @@
 /*   By: mdodevsk <mdodevsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/12 14:31:32 by mdodevsk          #+#    #+#             */
-/*   Updated: 2025/01/22 11:28:31 by mdodevsk         ###   ########.fr       */
+/*   Updated: 2025/01/22 15:52:52 by mdodevsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ int				check_format(int ac, char **av);
 void			free_matrice(int ac, char **av, char **strs);
 int				verif(int ac, char **av);
 int				free_and_error(t_stack_node **stack_a, t_stack_node **stack_b);
+char			**get_numbers(int ac, char **av);
 
 // Stack 
 t_stack_node	*new_node(int n);

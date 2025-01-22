@@ -6,7 +6,7 @@
 /*   By: mdodevsk <mdodevsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/12 14:47:36 by mdodevsk          #+#    #+#             */
-/*   Updated: 2025/01/22 14:18:23 by mdodevsk         ###   ########.fr       */
+/*   Updated: 2025/01/22 15:31:52 by mdodevsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,18 +46,6 @@ void	print_list_all(t_stack_node *head)
 		printf("\n Noeu : %d Indice : %d\n", head->content, head->target->content);
 		//printf("%d\n", head->content);
 		head = head->next;
-	}
-}
-
-void	free_list(t_stack_node *list)
-{
-	t_stack_node	*tmp;
-
-	while (list != NULL)
-	{
-		tmp = list;
-		list = list->next;
-		free(tmp);
 	}
 }
 

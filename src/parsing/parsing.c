@@ -6,7 +6,7 @@
 /*   By: mdodevsk <mdodevsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/24 16:04:00 by mdodevsk          #+#    #+#             */
-/*   Updated: 2025/01/14 12:09:51 by mdodevsk         ###   ########.fr       */
+/*   Updated: 2025/01/22 16:12:24 by mdodevsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static int	is_valid_number(char *str)
 	int	i;
 
 	i = 0;
-	printf("--%s--\n", str);
+	//printf("--%s--\n", str);
 	if (!str || str[i] == '\0')
 		return (0);
 	if (str[i] == '+' || str[i] == '-')
@@ -80,7 +80,6 @@ int	check_format(int ac, char **av)
 		if (!is_valid_number(strs[i]) || num < INT_MIN || num > INT_MAX
 			|| is_double(strs, i))
 		{
-			ft_printf("Error premiere boucle.");
 			free_matrice(ac, av, strs);
 			return (0);
 		}
