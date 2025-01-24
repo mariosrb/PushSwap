@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   algo.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mdodevsk <mdodevsk@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mario <mario@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 15:51:45 by mdodevsk          #+#    #+#             */
-/*   Updated: 2025/01/22 11:31:35 by mdodevsk         ###   ########.fr       */
+/*   Updated: 2025/01/24 13:11:37 by mario            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,9 +88,6 @@ void	push_to_a(t_stack_node **stack_a, t_stack_node **stack_b)
 
 void	first_step(t_stack_node **stack_a, t_stack_node **stack_b)
 {
-	t_stack_node	*head_a;
-	
-	head_a = *stack_a;
 	if (stack_size(*stack_a) == 4)
 	{
 		pa(&(*stack_a), &(*stack_b));
@@ -107,14 +104,6 @@ void	first_step(t_stack_node **stack_a, t_stack_node **stack_b)
 }
 void	second_step(t_stack_node **stack_a, t_stack_node **stack_b)
 {
-	// while (max_value(*stack_b)->index != 0)
-	// {
-	// 	if (max_value(*stack_b)->median == 1)
-	// 		rb(stack_b);
-	// 	else
-	// 		rrb(stack_b);
-	// 	get_index(*stack_b);
-	// }
 	while (*stack_b)
 	{
 		init_second_values(*stack_a, *stack_b);

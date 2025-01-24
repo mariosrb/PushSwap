@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mdodevsk <mdodevsk@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mario <mario@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/24 16:04:00 by mdodevsk          #+#    #+#             */
-/*   Updated: 2025/01/22 16:12:24 by mdodevsk         ###   ########.fr       */
+/*   Updated: 2025/01/24 13:48:30 by mario            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,21 +31,21 @@ static int	is_valid_number(char *str)
 	return (1);
 }
 
-static int	is_space(char *str)
-{
-	int i;
-	int	only_space;
+// static int	is_space(char *str)
+// {
+// 	int i;
+// 	int	only_space;
 
-	i = 0;
-	only_space = 1;
-	while (str[i])
-	{
-		if (str[i] == ' ' || str[i] == '\t')
-			only_space = 0;
-		i++;
-	}
-	return (only_space);
-}
+// 	i = 0;
+// 	only_space = 1;
+// 	while (str[i])
+// 	{
+// 		if (str[i] == ' ' || str[i] == '\t')
+// 			only_space = 0;
+// 		i++;
+// 	}
+// 	return (only_space);
+// }
 
 static int		is_double(char **strs, int i)
 {
@@ -92,9 +92,6 @@ int	check_format(int ac, char **av)
 
 int	verif(int ac, char **av)
 {
-	int	i;
-
-	i = 1;
 	if (ac < 2)
 	{
 		write (2, "Error\n", 6);

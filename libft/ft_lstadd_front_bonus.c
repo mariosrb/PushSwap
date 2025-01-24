@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstadd_front_bonus.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mdodevsk <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: mario <mario@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 16:22:13 by mdodevsk          #+#    #+#             */
-/*   Updated: 2024/11/12 18:46:49 by mdodevsk         ###   ########.fr       */
+/*   Updated: 2025/01/24 14:01:48 by mario            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstadd_front(t_list **lst, t_list *new)
+void	ft_lstadd_front(t_stack_node **lst, t_stack_node *new)
 {
 	new->next = *lst;
 	*lst = new;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mdodevsk <mdodevsk@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mario <mario@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/05 12:22:16 by mdodevsk          #+#    #+#             */
-/*   Updated: 2025/01/22 16:17:48 by mdodevsk         ###   ########.fr       */
+/*   Updated: 2025/01/24 13:49:11 by mario            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ void	free_matrice(int ac, char **av, char **strs)
 {
 	int	i;
 
+	(void)av;
 	i = 0;
 	if (ac == 2)
 	{

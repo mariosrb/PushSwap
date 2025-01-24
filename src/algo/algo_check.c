@@ -3,12 +3,44 @@
 /*                                                        :::      ::::::::   */
 /*   algo_check.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mdodevsk <mdodevsk@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mario <mario@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 14:54:30 by mdodevsk          #+#    #+#             */
-/*   Updated: 2025/01/22 10:28:26 by mdodevsk         ###   ########.fr       */
+/*   Updated: 2025/01/24 13:32:00 by mario            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+/*CC = cc 
+
+CFLAGS = -Wall -Wextra -Werror
+
+VPATH = algo operation parsing
+
+SRC =	./src/algo/algo_check.c ./src/algo/algo.c ./src/algo/util_algo.c ./src/algo/util_two_algo.c \
+		./src/operation/push.c ./src/operation/reverse.c ./src/operation/rotate.c ./src/operation/swap.c \
+		./src/operation/utils_list.c ./src/parsing/parsing.c ./src/parsing/utils.c ./main.c
+
+NAME = pushswap.a
+AR = ar -rcs
+OBJ = $(SRC:./%.c=%.o)
+
+$(NAME): $(OBJ)
+	$(AR) $@ $^
+
+all: $(NAME)
+
+%.o: %.c
+	$(CC) $(CFLAGS) -c $< -o $@
+
+clean:
+		rm -rf $(OBJ) $(BONUS_OBJ)
+
+fclean: clean
+		rm -rf $(NAME)
+
+re: fclean all
+
+.PHONY : all clean fclean re*/
 
 #include "../../include/push_swap.h"
 

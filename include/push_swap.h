@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mdodevsk <mdodevsk@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mario <mario@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/12 14:31:32 by mdodevsk          #+#    #+#             */
-/*   Updated: 2025/01/22 15:52:52 by mdodevsk         ###   ########.fr       */
+/*   Updated: 2025/01/24 14:03:57 by mario            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,23 +14,9 @@
 # define PUSH_SWAP_H
 
 # include <limits.h>
-# include <stdbool.h>
 # include "../libft/libft.h"
 
-// typedef struct s_stack_node
-// {
-// 	int					content;
-// 	int					cost;
-// 	int					index;
-// 	int					median;
-// 	bool				cheapest;
-// 	struct s_stack_node	*next;
-// 	struct s_stack_node	*prev;
-// 	struct s_stack_node	*target;
-// }	t_stack_node;
-
-void	print_list(t_stack_node *head);
-
+void			print_list(t_stack_node *head);
 
 // Parsing
 long			ft_atol(char *str);
