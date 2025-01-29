@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   algo_check.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mario <mario@student.42.fr>                +#+  +:+       +#+        */
+/*   By: mdodevsk <mdodevsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 14:54:30 by mdodevsk          #+#    #+#             */
-/*   Updated: 2025/01/24 13:32:00 by mario            ###   ########.fr       */
+/*   Updated: 2025/01/29 12:11:06 by mdodevsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,6 +122,7 @@ void	get_cheapest(t_stack_node *stack)
 			cheapest_number = stack->cost;
 			cheapest = stack;
 		}
+		stack->cheapest = false;
 		stack = stack->next;
 	}
 	cheapest->cheapest = true;

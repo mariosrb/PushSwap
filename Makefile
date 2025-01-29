@@ -3,15 +3,15 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: mario <mario@student.42.fr>                +#+  +:+       +#+         #
+#    By: mdodevsk <mdodevsk@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/24 12:15:28 by mario             #+#    #+#              #
-#    Updated: 2025/01/24 13:52:59 by mario            ###   ########.fr        #
+#    Updated: 2025/01/29 12:08:07 by mdodevsk         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # Compiler
-CC = gcc
+CC = gcc -g3
 
 # Compiler flags
 CFLAGS = -Wall -Wextra -Werror

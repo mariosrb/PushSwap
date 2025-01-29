@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   algo.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mario <mario@student.42.fr>                +#+  +:+       +#+        */
+/*   By: mdodevsk <mdodevsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 15:51:45 by mdodevsk          #+#    #+#             */
-/*   Updated: 2025/01/24 13:11:37 by mario            ###   ########.fr       */
+/*   Updated: 2025/01/29 12:06:56 by mdodevsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,6 +109,7 @@ void	second_step(t_stack_node **stack_a, t_stack_node **stack_b)
 		init_second_values(*stack_a, *stack_b);
 		push_to_a(stack_a, stack_b);
 	}
+	get_index(*stack_a);
 	while (min_value(*stack_a)->index != 0)
 	{
 		if (min_value(*stack_a)->median == 1)
