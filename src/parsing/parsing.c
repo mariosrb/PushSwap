@@ -6,7 +6,7 @@
 /*   By: mario <mario@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/24 16:04:00 by mdodevsk          #+#    #+#             */
-/*   Updated: 2025/01/24 13:48:30 by mario            ###   ########.fr       */
+/*   Updated: 2025/01/30 12:28:13 by mario            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,14 @@ static int	is_valid_number(char *str)
 	int	i;
 
 	i = 0;
-	//printf("--%s--\n", str);
 	if (!str || str[i] == '\0')
 		return (0);
 	if (str[i] == '+' || str[i] == '-')
+	{
 		i++;
+		if (!str[i])
+			return (0);
+	}
 	while (str[i])
 	{
 		if (!ft_isdigit(str[i]))
@@ -93,10 +96,7 @@ int	check_format(int ac, char **av)
 int	verif(int ac, char **av)
 {
 	if (ac < 2)
-	{
-		write (2, "Error\n", 6);
 		return (0);
-	}
 	if ((ac == 2 && !av[1][0]) || !check_format(ac, av))
 	{
 		write (2, "Error\n", 6);
