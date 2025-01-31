@@ -6,7 +6,7 @@
 /*   By: mdodevsk <mdodevsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/12 14:16:27 by mdodevsk          #+#    #+#             */
-/*   Updated: 2025/01/29 12:01:04 by mdodevsk         ###   ########.fr       */
+/*   Updated: 2025/01/29 16:53:18 by mdodevsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,15 @@
 char	**get_numbers(int ac, char **av)
 {
 	if (ac == 2)
-		return(ft_split(av[1], ' '));
+		return (ft_split(av[1], ' '));
 	return (&av[1]);
 }
 
 void	init_stacks(t_stack_node **stack_a, t_stack_node **stack_b)
- {
+{
 	*stack_a = NULL;
 	*stack_b = NULL;
- }
+}
 
 int	is_sorted(t_stack_node *stack)
 {
@@ -36,24 +36,24 @@ int	is_sorted(t_stack_node *stack)
 	return (1);
 }
 
-int main(int ac, char **av)
+int	main(int ac, char **av)
 {
 	char			**numbers;
 	t_stack_node	*stack_a;
 	t_stack_node	*stack_b;
-	
+
 	if (!verif(ac, av))
 		return (1);
 	init_stacks(&stack_a, &stack_b);
-	numbers = get_numbers(ac,av);
+	numbers = get_numbers(ac, av);
 	stack_a = fill_list(numbers);
 	if (ac == 2)
 		free_matrice(ac, av, numbers);
 	if (!stack_a)
-		{
-			write(2, "Error\n", 6);
-			return (1);
-		}
+	{
+		write(2, "Error\n", 6);
+		return (1);
+	}
 	if (!is_sorted(stack_a))
 		sort_stack(&stack_a, &stack_b);
 	free_list(stack_a);

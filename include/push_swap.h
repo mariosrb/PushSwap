@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mario <mario@student.42.fr>                +#+  +:+       +#+        */
+/*   By: mdodevsk <mdodevsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/12 14:31:32 by mdodevsk          #+#    #+#             */
-/*   Updated: 2025/01/24 14:03:57 by mario            ###   ########.fr       */
+/*   Updated: 2025/01/29 16:45:29 by mdodevsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,13 +55,14 @@ void			get_cheapest(t_stack_node *stack);
 void			get_index(t_stack_node *stack);
 void			get_median(t_stack_node *stack);
 void			get_first_cost(t_stack_node *stack_a, t_stack_node *stack_b);
-void			set_target(t_stack_node *stack_a, t_stack_node *stack_b); // a mettrte en static
+void			set_target(t_stack_node *stack_a, t_stack_node *stack_b);
 void			sort_stack(t_stack_node **stack_a, t_stack_node **stack_b);
 void			init_first_values(t_stack_node *stack_a, t_stack_node *stack_b);
-void			init_second_values(t_stack_node *stack_a, t_stack_node *stack_b);
-void			push_to_b(t_stack_node **stack_a, t_stack_node **stack_b); // static ?
-void			first_step(t_stack_node **stack_a, t_stack_node **stack_b); // static
-void        	second_step(t_stack_node **stack_a, t_stack_node **stack_b);
+void			init_values(t_stack_node *stack_a, t_stack_node *stack_b);
+void			push_to_b(t_stack_node **stack_a, t_stack_node **stack_b);
+void			push_to_a(t_stack_node **stack_a, t_stack_node **stack_b);
+void			first_step(t_stack_node **stack_a, t_stack_node **stack_b);
+void			second_step(t_stack_node **stack_a, t_stack_node **stack_b);
 void			set_second_target(t_stack_node *stack_a, t_stack_node *stack_b);
 
 #endif

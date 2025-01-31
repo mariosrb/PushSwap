@@ -6,7 +6,7 @@
 /*   By: mdodevsk <mdodevsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 12:45:08 by mdodevsk          #+#    #+#             */
-/*   Updated: 2025/01/29 11:47:35 by mdodevsk         ###   ########.fr       */
+/*   Updated: 2025/01/29 16:47:30 by mdodevsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,8 @@ void	pa(t_stack_node **before, t_stack_node **after)
 	else
 	{
 		(*before)->next = *after;
-		 if(*after != NULL)
-		 	(*after)->prev = *before;
+		if (*after != NULL)
+			(*after)->prev = *before;
 		*after = *before;
 		*before = NULL;
 	}
@@ -58,8 +58,8 @@ void	pb(t_stack_node **before, t_stack_node **after)
 	else
 	{
 		(*before)->next = *after;
-		 if(*after != NULL)
-		 	(*after)->prev = *before;
+		if (*after != NULL)
+			(*after)->prev = *before;
 		*after = *before;
 		*before = NULL;
 	}

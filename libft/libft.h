@@ -39,7 +39,6 @@ int				ft_atoi(const char *str);
 char			*ft_itoa(int n);
 char			**ft_split(const char *s, char c);
 t_stack_node	*ft_lstlast(t_stack_node *lst);
-t_stack_node	*ft_lstmap(t_stack_node *lst, void *(*f)(void *), void (*del)(void *));
 void			ft_lstadd_back(t_stack_node **lst, t_stack_node *new);
 
 #endif

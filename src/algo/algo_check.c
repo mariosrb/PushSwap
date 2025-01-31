@@ -6,41 +6,9 @@
 /*   By: mdodevsk <mdodevsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 14:54:30 by mdodevsk          #+#    #+#             */
-/*   Updated: 2025/01/29 12:11:06 by mdodevsk         ###   ########.fr       */
+/*   Updated: 2025/01/29 16:33:57 by mdodevsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-/*CC = cc 
-
-CFLAGS = -Wall -Wextra -Werror
-
-VPATH = algo operation parsing
-
-SRC =	./src/algo/algo_check.c ./src/algo/algo.c ./src/algo/util_algo.c ./src/algo/util_two_algo.c \
-		./src/operation/push.c ./src/operation/reverse.c ./src/operation/rotate.c ./src/operation/swap.c \
-		./src/operation/utils_list.c ./src/parsing/parsing.c ./src/parsing/utils.c ./main.c
-
-NAME = pushswap.a
-AR = ar -rcs
-OBJ = $(SRC:./%.c=%.o)
-
-$(NAME): $(OBJ)
-	$(AR) $@ $^
-
-all: $(NAME)
-
-%.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $@
-
-clean:
-		rm -rf $(OBJ) $(BONUS_OBJ)
-
-fclean: clean
-		rm -rf $(NAME)
-
-re: fclean all
-
-.PHONY : all clean fclean re*/
 
 #include "../../include/push_swap.h"
 
@@ -58,7 +26,7 @@ void	get_index(t_stack_node *stack)
 
 void	get_median(t_stack_node *stack)
 {
-	int				 i;
+	int				i;
 	int				stack_len;
 	t_stack_node	*tmp;
 
@@ -85,7 +53,7 @@ void	get_first_cost(t_stack_node *stack_a, t_stack_node *stack_b)
 	t_stack_node	*tmp;
 
 	if (!stack_a)
-		return;
+		return ;
 	tmp = stack_a;
 	while (tmp)
 	{
@@ -143,10 +111,10 @@ void	set_second_target(t_stack_node *stack_a, t_stack_node *stack_b)
 		{
 			if (stack_a->content < target_number
 				&& stack_b->content < stack_a->content)
-				{
-					target_number = stack_a->content;
-					target = stack_a;
-				}
+			{
+				target_number = stack_a->content;
+				target = stack_a;
+			}
 			stack_a = stack_a->next;
 		}
 		if (!target)

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mario <mario@student.42.fr>                +#+  +:+       +#+        */
+/*   By: mdodevsk <mdodevsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/24 16:04:00 by mdodevsk          #+#    #+#             */
-/*   Updated: 2025/01/24 13:48:30 by mario            ###   ########.fr       */
+/*   Updated: 2025/01/31 13:40:14 by mdodevsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,14 @@ static int	is_valid_number(char *str)
 	int	i;
 
 	i = 0;
-	//printf("--%s--\n", str);
 	if (!str || str[i] == '\0')
 		return (0);
 	if (str[i] == '+' || str[i] == '-')
+	{
 		i++;
+		if (!str[i])
+			return (0);
+	}
 	while (str[i])
 	{
 		if (!ft_isdigit(str[i]))
@@ -31,27 +34,11 @@ static int	is_valid_number(char *str)
 	return (1);
 }
 
-// static int	is_space(char *str)
-// {
-// 	int i;
-// 	int	only_space;
-
-// 	i = 0;
-// 	only_space = 1;
-// 	while (str[i])
-// 	{
-// 		if (str[i] == ' ' || str[i] == '\t')
-// 			only_space = 0;
-// 		i++;
-// 	}
-// 	return (only_space);
-// }
-
-static int		is_double(char **strs, int i)
+static int	is_double(char **strs, int i)
 {
 	int		j;
 	long	num;
-	
+
 	j = 0;
 	num = ft_atol(strs[i]);
 	while (j < i)
@@ -93,10 +80,7 @@ int	check_format(int ac, char **av)
 int	verif(int ac, char **av)
 {
 	if (ac < 2)
-	{
-		write (2, "Error\n", 6);
 		return (0);
-	}
 	if ((ac == 2 && !av[1][0]) || !check_format(ac, av))
 	{
 		write (2, "Error\n", 6);
